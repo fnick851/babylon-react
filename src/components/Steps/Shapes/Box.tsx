@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import * as BABYLON from "babylonjs"
-import "./App.css"
 
-const App: React.FC = () => {
+export default function Box() {
     const canvasEl = useRef<HTMLCanvasElement>(null)
 
     useEffect(() => {
@@ -28,7 +27,11 @@ const App: React.FC = () => {
         )
         new BABYLON.PointLight("light2", new BABYLON.Vector3(0, 1, -1), scene)
         // Add and manipulate meshes in the scene
-        BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2 }, scene)
+        BABYLON.MeshBuilder.CreateBox(
+            "box",
+            { height: 1, width: 1, depth: 1 },
+            scene
+        )
 
         // Register a render loop to repeatedly render the scene
         engine.runRenderLoop(function() {
@@ -44,5 +47,3 @@ const App: React.FC = () => {
         <canvas ref={canvasEl} id="renderCanvas" touch-action="none"></canvas>
     ) //touch-action="none" for best results from PEP
 }
-
-export default App

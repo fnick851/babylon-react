@@ -1,0 +1,9 @@
+.not-found {
+    background-color: cornflowerblue;
+    height: 100vh;
+    padding: 30px 0 0 10px;
+}
+
+.not-found h1 {
+    margin: 0;
+}
